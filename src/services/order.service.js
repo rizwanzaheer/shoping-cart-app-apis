@@ -20,7 +20,7 @@ const createOrder = async (orderBody) => {
  * Query for orders
  * @param {Object} filter - Mongo filter
  * @param {Object} options - Query options
- * @param {string} [options.sortBy] - Sort option in the format: sortField:(desc|asc)
+ * @param {string} [options.sortBy] - Sort option in the format: fsortField:(desc|asc)
  * @param {number} [options.limit] - Maximum number of results per page (default = 10)
  * @param {number} [options.page] - Current page (default = 1)
  * @returns {Promise<QueryResult>}
@@ -36,17 +36,19 @@ const queryOrders = async (filter, options) => {
  * @returns {Promise<Order>}
  */
 const getOrderById = async (id) => {
-  return Order.findById(id);
+  return Order.findById(id).populate({
+    path: '_orderProducts.productId',
+  });
 };
 
 /**
- * Search Order by orderId
- * @param {string} orderId
+ * Search Order by orderNumber
+ * @param {string} orderNumber
  * @returns {Promise<Order>}
  */
-const searchOrderByOrderId = async (orderId) => {
+const searchOrderByOrderId = async (orderNumber) => {
   return Order.find({
-    $or: [{ orderId: { $regex: '.*' + orderId.toLowerCase() + '.*' } }],
+    $or: [{ orderNumber: { $regex: '.*' + orderNumber.toLowerCase() + '.*' } }],
   });
 };
 

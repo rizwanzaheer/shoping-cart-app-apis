@@ -15,6 +15,7 @@ const createUser = catchAsync(async (req, res) => {
 const getUsers = catchAsync(async (req, res) => {
   const filter = pick(req.query, ['email', 'name', 'lastName']);
   const options = pick(req.query, ['sortBy', 'limit', 'page']);
+  options.populate = '_orders.productId';
   const result = await userService.queryUsers(filter, options);
   res.send(result);
 });
@@ -38,7 +39,20 @@ const searchUserByName = catchAsync(async (req, res) => {
 });
 
 const updateUser = catchAsync(async (req, res) => {
-  const user = await userService.updateUserById(req.params.userId, req.body);
+  let user;
+  if (req.body.hasOwnProperty('_orders')) {
+    const updateBody = {
+      ...req.body,
+      $push: {
+        _orders: req.body._orders,
+      },
+    };
+    delete updateBody._orders;
+    user = await userService.updateUserByIdGeneric(req.params.userId, updateBody);
+  } else {
+    user = await userService.updateUserById(req.params.userId, req.body);
+  }
+
   res.send(user);
 });
 

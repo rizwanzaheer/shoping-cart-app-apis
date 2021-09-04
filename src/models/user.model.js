@@ -34,10 +34,12 @@ const userSchema = new Schema(
         }
       },
     },
-    _orders: {
-      type: mongoose.SchemaTypes.ObjectId,
-      ref: 'Order',
-    },
+    _orders: [
+      {
+        type: mongoose.SchemaTypes.ObjectId,
+        ref: 'Order',
+      },
+    ],
   },
   {
     // versionKey: false,

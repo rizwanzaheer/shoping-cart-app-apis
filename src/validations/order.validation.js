@@ -3,16 +3,19 @@ const { objectId } = require('./custom.validation');
 
 const createOrder = {
   body: Joi.object().keys({
-    orderId: Joi.number()
+    orderNumber: Joi.number()
       .integer()
       .allow(null)
       .empty()
       .default(parseInt(Math.random() * 10000)),
     deliverAt: Joi.date().iso(),
-    _orderProducts: Joi.object().keys({
-      _companyOfHoldingShare: Joi.required().custom(objectId),
-      shareValueInPercentage: Joi.string().allow(null, ''),
-    }),
+
+    _orderProducts: Joi.array().items(
+      Joi.object().keys({
+        productId: Joi.required().custom(objectId),
+        productQuantity: Joi.number().integer().allow(null, 0),
+      })
+    ),
     // _orderProducts: Joi.array().items(Joi.string().allow(null, '')).allow(null, ''),
     status: Joi.string().allow(null, '').empty().default('placed'),
   }),
@@ -20,7 +23,7 @@ const createOrder = {
 
 const getOrders = {
   query: Joi.object().keys({
-    orderId: Joi.number()
+    orderNumber: Joi.number()
       .integer()
       .allow(null)
       .empty()

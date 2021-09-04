@@ -7,16 +7,16 @@ const { toJSON, paginate, mongooseErrorHandler } = require('./plugins');
 
 const orderSchema = new Schema(
   {
-    orderId: {
-      type: Number,
+    orderNumber: {
+      type: String,
       trim: true,
-      required: true,
+      required: [true, 'Order Id is requires!'],
       default: null,
     },
     deliverAt: {
       type: Date,
       trim: true,
-      required: false,
+      required: [true, 'Delivery at is requires!'],
       default: null,
     },
     status: {
@@ -30,7 +30,7 @@ const orderSchema = new Schema(
       {
         productId: {
           type: mongoose.SchemaTypes.ObjectId,
-          ref: 'Products',
+          ref: 'Product',
         },
         productQuantity: {
           type: Number,
