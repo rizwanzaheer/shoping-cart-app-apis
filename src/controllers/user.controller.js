@@ -15,7 +15,7 @@ const createUser = catchAsync(async (req, res) => {
 const getUsers = catchAsync(async (req, res) => {
   const filter = pick(req.query, ['email', 'name', 'lastName']);
   const options = pick(req.query, ['sortBy', 'limit', 'page']);
-  options.populate = '_orders.productId';
+  options.populate = '_orders._orderProducts.productId';
   const result = await userService.queryUsers(filter, options);
   res.send(result);
 });
@@ -30,7 +30,6 @@ const getUser = catchAsync(async (req, res) => {
 
 const searchUserByName = catchAsync(async (req, res) => {
   const options = pick(req.query, ['name']);
-  console.log('options is: ', options);
   const user = await userService.searchUserByName(req.query.name);
   if (user.length === 0) {
     throw new ApiError(NOT_FOUND, 'User not found');

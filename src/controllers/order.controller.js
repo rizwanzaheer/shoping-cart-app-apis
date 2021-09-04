@@ -10,21 +10,20 @@ const catchAsync = require('../utils/catchAsync');
 
 const createOrder = catchAsync(async (req, res) => {
   const { firstName, lastName, email } = req.body;
-  // 1. Check the user email is already taken or not
+
+  // 1. Check the email exist or not
   if (!req.body.hasOwnProperty('email')) {
     throw new ApiError(NOT_FOUND, 'Email is required to place order!');
   }
 
-  // 2. create the order using user information
+  // 2. create the order using user order information
   req.body.orderNumber = parseInt(Math.random() * 10000);
   const order = await orderService.createOrder(req.body);
-  console.log('order info is: ', order);
 
   // 3. create user information & store in user information table
   let user = await userService.getUserByEmail(req.body.email);
-  console.log('test user is ', _.isEmpty(user));
+
   if (!_.isEmpty(user)) {
-    console.log('in if');
     const updateUserInfo = {
       $push: {
         _orders: order.id,
@@ -32,7 +31,6 @@ const createOrder = catchAsync(async (req, res) => {
     };
     await userService.updateUserByIdGeneric(user.id, updateUserInfo);
   } else {
-    console.log('in else');
     const userInfo = {
       firstName,
       lastName,
@@ -72,7 +70,6 @@ const getOrder = catchAsync(async (req, res) => {
 
 const searchOrderByOrderId = catchAsync(async (req, res) => {
   const options = pick(req.query, ['name']);
-  console.log('options is: ', options);
   const order = await orderService.searchOrderByOrderId(req.query.name);
   if (order.length === 0) {
     throw new ApiError(NOT_FOUND, 'Order not found');

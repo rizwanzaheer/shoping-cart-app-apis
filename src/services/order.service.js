@@ -36,9 +36,11 @@ const queryOrders = async (filter, options) => {
  * @returns {Promise<Order>}
  */
 const getOrderById = async (id) => {
-  return Order.findById(id).populate({
-    path: '_orderProducts.productId',
-  });
+  return Order.findById(id)
+    .populate({
+      path: '_orderProducts.productId',
+    })
+    .populate('_orderBy');
 };
 
 /**

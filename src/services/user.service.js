@@ -86,10 +86,6 @@ const updateUserById = async (userId, updateBody) => {
 
 const isEmailTaken = async (email) => {
   const user = await User.isEmailTaken(email);
-  // console.log('user test is: ', user);
-  // if (user) {
-  //   throw new ApiError(BAD_REQUEST, 'email is already taken');
-  // }
   return user;
 };
 

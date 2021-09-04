@@ -3,11 +3,7 @@ const { objectId } = require('./custom.validation');
 
 const createOrder = {
   body: Joi.object().keys({
-    orderNumber: Joi.number()
-      .integer()
-      .allow(null)
-      .empty()
-      .default(parseInt(Math.random() * 10000)),
+    orderNumber: Joi.number().integer().allow(null).empty(),
     deliverAt: Joi.date().iso(),
     firstName: Joi.string().required(),
     lastName: Joi.string().required(),

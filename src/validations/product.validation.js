@@ -38,7 +38,7 @@ const getProduct = {
 
 const searchProductByName = {
   query: Joi.object().keys({
-    productId: Joi.string().allow(null, ''),
+    name: Joi.string().allow(null, ''),
   }),
 };
 

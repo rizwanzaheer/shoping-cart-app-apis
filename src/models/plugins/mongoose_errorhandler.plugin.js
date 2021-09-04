@@ -1,6 +1,5 @@
 const errorHandler = (schema) => {
   let checkError = (error, doc, next) => {
-    console.log('error is: ', error);
     if (error.name === 'MongoError' && error.code === 11000) {
       let messageSplit = error.message.split(' ');
       next(new Error(messageSplit[7].split('_')[0] + ' ' + messageSplit[12].slice(1, -1) + ' already existed'));

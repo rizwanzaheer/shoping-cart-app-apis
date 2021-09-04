@@ -24,7 +24,6 @@ const productSchema = new Schema(
       required: [true, 'Product Available Stock number is requires!'],
       trim: true,
       lowercase: true,
-      default: '',
     },
     price: {
       type: String,

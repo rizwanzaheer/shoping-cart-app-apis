@@ -47,7 +47,6 @@ const getProduct = catchAsync(async (req, res) => {
 
 const searchProductByProductName = catchAsync(async (req, res) => {
   const options = pick(req.query, ['name']);
-  console.log('options is: ', options);
   const product = await productService.searchProductByProductName(req.query.name);
   if (product.length === 0) {
     throw new ApiError(NOT_FOUND, 'Product not found');
