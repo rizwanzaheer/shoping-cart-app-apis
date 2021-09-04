@@ -39,6 +39,12 @@ const productSchema = new Schema(
       lowercase: true,
       default: '',
     },
+    originalImageName: {
+      type: String,
+      trim: true,
+      lowercase: true,
+      default: '',
+    },
     imagePath: {
       type: String,
       trim: true,

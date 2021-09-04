@@ -2,13 +2,13 @@ const Joi = require('joi');
 const { objectId } = require('./custom.validation');
 
 const createProduct = {
-  body: Joi.object().keys({
-    name: Joi.string().allow(null, ''),
+  query: Joi.object().keys({
+    name: Joi.string().required(),
     inStock: Joi.boolean(),
-    availableStock: Joi.string().allow(null, ''),
-    price: Joi.string().allow(null, ''),
-    imageName: Joi.string().allow(null, ''),
-    imagePath: Joi.string().allow(null, ''),
+    availableStock: Joi.string().required(),
+    price: Joi.string().required(),
+    imageName: Joi.string(),
+    imagePath: Joi.string(),
     notAvailableFrom: Joi.date().iso().allow(null, ''),
     notAvailableTo: Joi.date().iso().allow(null, ''),
   }),

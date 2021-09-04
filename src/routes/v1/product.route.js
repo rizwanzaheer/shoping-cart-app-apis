@@ -2,6 +2,7 @@ const express = require('express');
 
 // Middleware
 const validate = require('../../middlewares/validate');
+const { upload } = require('../../middlewares/fileUpload');
 
 // Validators
 const { productValidation } = require('../../validations');
@@ -13,7 +14,7 @@ const router = express.Router();
 
 router
   .route('/')
-  .post(validate(productValidation.createProduct), productController.createProduct)
+  .post(validate(productValidation.createProduct), upload.single('file'), productController.createProduct)
   .get(validate(productValidation.getProducts), productController.getProducts);
 
 router.route('/search').get(validate(productValidation.searchProductByName), productController.searchProductByProductName);

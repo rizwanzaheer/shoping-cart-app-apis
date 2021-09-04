@@ -8,7 +8,14 @@ const ApiError = require('../utils/ApiError');
 const catchAsync = require('../utils/catchAsync');
 
 const createProduct = catchAsync(async (req, res) => {
-  const product = await productService.createProduct(req.body);
+  const { originalname, filename, path } = req.file;
+  const params = {
+    ...req.body,
+    imageName: filename,
+    originalImageName: originalname,
+    imagePath: path,
+  };
+  const product = await productService.createProduct(params);
   res.status(CREATED).send(product);
 });
 
