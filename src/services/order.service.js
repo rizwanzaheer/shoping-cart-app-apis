@@ -76,7 +76,7 @@ const updateOrderById = async (orderId, updateBody) => {
  * @returns {Promise<Order>}
  */
 const updateOrderByIdGeneric = async (id, updateBody) => {
-  const order = await Order.findByIdAndUpdate(id, updateBody).exec();
+  const order = await Order.findByIdAndUpdate(id, updateBody, { new: true }).exec();
   return order;
 };
 

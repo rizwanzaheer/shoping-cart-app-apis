@@ -1,6 +1,7 @@
 const { CREATED, NOT_FOUND, NO_CONTENT } = require('http-status');
+const _ = require('lodash');
 // Services
-const { orderService } = require('../services');
+const { orderService, userService } = require('../services');
 
 // Utils
 const pick = require('../utils/pick');
@@ -8,8 +9,48 @@ const ApiError = require('../utils/ApiError');
 const catchAsync = require('../utils/catchAsync');
 
 const createOrder = catchAsync(async (req, res) => {
+  const { firstName, lastName, email } = req.body;
+  // 1. Check the user email is already taken or not
+  if (!req.body.hasOwnProperty('email')) {
+    throw new ApiError(NOT_FOUND, 'Email is required to place order!');
+  }
+
+  // 2. create the order using user information
+  req.body.orderNumber = parseInt(Math.random() * 10000);
   const order = await orderService.createOrder(req.body);
-  res.status(CREATED).send(order);
+  console.log('order info is: ', order);
+
+  // 3. create user information & store in user information table
+  let user = await userService.getUserByEmail(req.body.email);
+  console.log('test user is ', _.isEmpty(user));
+  if (!_.isEmpty(user)) {
+    console.log('in if');
+    const updateUserInfo = {
+      $push: {
+        _orders: order.id,
+      },
+    };
+    await userService.updateUserByIdGeneric(user.id, updateUserInfo);
+  } else {
+    console.log('in else');
+    const userInfo = {
+      firstName,
+      lastName,
+      email,
+      _orders: order.id,
+    };
+
+    user = await userService.createUser(userInfo);
+  }
+
+  // 4. store new created user id against the order in or table
+  const updateOrderInfo = {
+    _orderBy: user.id,
+  };
+  const orderInfo = await orderService.updateOrderByIdGeneric(order.id, updateOrderInfo);
+
+  // 5. send the response to user
+  res.status(CREATED).send({ orderInfo, user });
 });
 
 const getOrders = catchAsync(async (req, res) => {

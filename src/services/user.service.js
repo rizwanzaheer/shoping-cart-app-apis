@@ -84,6 +84,15 @@ const updateUserById = async (userId, updateBody) => {
   return user;
 };
 
+const isEmailTaken = async (email) => {
+  const user = await User.isEmailTaken(email);
+  // console.log('user test is: ', user);
+  // if (user) {
+  //   throw new ApiError(BAD_REQUEST, 'email is already taken');
+  // }
+  return user;
+};
+
 /**
  * Update user by id with any constrain
  * @param {ObjectId} id
@@ -112,6 +121,7 @@ const deleteUserById = async (userId) => {
 module.exports = {
   createUser,
   queryUsers,
+  isEmailTaken,
   getUserById,
   getUserByEmail,
   updateUserById,

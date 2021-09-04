@@ -9,6 +9,9 @@ const createOrder = {
       .empty()
       .default(parseInt(Math.random() * 10000)),
     deliverAt: Joi.date().iso(),
+    firstName: Joi.string().required(),
+    lastName: Joi.string().required(),
+    email: Joi.string().required().email(),
 
     _orderProducts: Joi.array().items(
       Joi.object().keys({

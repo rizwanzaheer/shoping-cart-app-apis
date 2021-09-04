@@ -10,7 +10,7 @@ const orderSchema = new Schema(
     orderNumber: {
       type: String,
       trim: true,
-      required: [true, 'Order Id is requires!'],
+      required: [true, 'Order Number is requires!'],
       default: null,
     },
     deliverAt: {
