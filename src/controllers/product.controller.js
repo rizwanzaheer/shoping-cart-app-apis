@@ -10,7 +10,8 @@ const catchAsync = require('../utils/catchAsync');
 const createProduct = catchAsync(async (req, res) => {
   const { originalname, filename, path } = req.file;
   const params = {
-    ...req.body,
+    // ...req.body,
+    ...req.query,
     imageName: filename,
     originalImageName: originalname,
     imagePath: path,

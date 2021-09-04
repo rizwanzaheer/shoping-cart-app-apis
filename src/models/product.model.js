@@ -75,6 +75,17 @@ productSchema.plugin(paginate);
 productSchema.plugin(mongooseErrorHandler);
 
 /**
+ * Check if name is taken
+ * @param {string} name - The products name
+ * @param {ObjectId} [excludeProductId] - The id of the product to be excluded
+ * @returns {Promise<boolean>}
+ */
+productSchema.statics.isNameTaken = async function (name, excludeProductId) {
+  const product = await this.findOne({ name, _id: { $ne: excludeProductId } });
+  return !!product;
+};
+
+/**
  * @typedef Product
  */
 const Product = mongoose.model('Product', productSchema);
