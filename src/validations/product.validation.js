@@ -6,7 +6,7 @@ const createProduct = {
     name: Joi.string().required(),
     inStock: Joi.boolean(),
     availableStock: Joi.string().required(),
-    price: Joi.string().required(),
+    price: Joi.number().integer().required(),
     imageName: Joi.string(),
     imagePath: Joi.string(),
     notAvailableFrom: Joi.date().iso().allow(null, ''),

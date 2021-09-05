@@ -26,7 +26,7 @@ const productSchema = new Schema(
       lowercase: true,
     },
     price: {
-      type: String,
+      type: Number,
       required: [true, 'Product Price is requires!'],
       trim: true,
       lowercase: true,
