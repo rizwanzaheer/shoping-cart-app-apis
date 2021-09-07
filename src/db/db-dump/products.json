@@ -1,0 +1,183 @@
+[{
+  "_id": {
+    "$oid": "61339c12e47f2a6542c1c023"
+  },
+  "inStock": true,
+  "availableStock": 11,
+  "price": "123",
+  "imageName": "1630772242761-328937671-fanta.jpeg",
+  "originalImageName": "fanta.jpeg",
+  "imagePath": "files/1630772242761-328937671-fanta.jpeg",
+  "notAvailableFrom": {
+    "$date": "2021-05-12T16:18:04.793Z"
+  },
+  "notAvailableTo": {
+    "$date": "2021-12-12T16:18:04.793Z"
+  },
+  "name": "fanta",
+  "createdAt": {
+    "$date": "2021-09-04T16:17:22.772Z"
+  },
+  "updatedAt": {
+    "$date": "2021-09-04T16:17:22.772Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61339ccbe47f2a6542c1c028"
+  },
+  "inStock": true,
+  "availableStock": 22,
+  "price": "148",
+  "imageName": "1630772427088-472179030-apple sidra.png",
+  "originalImageName": "apple sidra.png",
+  "imagePath": "files/1630772427088-472179030-apple sidra.png",
+  "notAvailableFrom": {
+    "$date": "2021-09-06T16:18:04.793Z"
+  },
+  "notAvailableTo": {
+    "$date": "2021-09-12T16:18:04.793Z"
+  },
+  "name": "apple sidra",
+  "createdAt": {
+    "$date": "2021-09-04T16:20:27.093Z"
+  },
+  "updatedAt": {
+    "$date": "2021-09-04T16:20:27.093Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61339d1ce47f2a6542c1c02b"
+  },
+  "inStock": true,
+  "availableStock": 145,
+  "price": "148",
+  "imageName": "1630772508756-13954640-coca cola.jpeg",
+  "originalImageName": "coca cola.jpeg",
+  "imagePath": "files/1630772508756-13954640-coca cola.jpeg",
+  "notAvailableFrom": {
+    "$date": "2021-09-09T16:18:04.793Z"
+  },
+  "notAvailableTo": null,
+  "name": "coca cola",
+  "createdAt": {
+    "$date": "2021-09-04T16:21:48.764Z"
+  },
+  "updatedAt": {
+    "$date": "2021-09-04T16:36:21.078Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61339e9fe47f2a6542c1c033"
+  },
+  "inStock": true,
+  "availableStock": 3,
+  "price": "48",
+  "imageName": "1630772895118-595919737-due.jpeg",
+  "originalImageName": "due.jpeg",
+  "imagePath": "files/1630772895118-595919737-due.jpeg",
+  "notAvailableFrom": {
+    "$date": "2021-09-07T16:18:04.793Z"
+  },
+  "notAvailableTo": null,
+  "name": "mountain dew",
+  "createdAt": {
+    "$date": "2021-09-04T16:28:15.121Z"
+  },
+  "updatedAt": {
+    "$date": "2021-09-04T16:28:15.121Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6133a05025a3ed6b142f3ae4"
+  },
+  "inStock": true,
+  "price": "48",
+  "imageName": "1630773328737-482370929-finley ginger ale.jpeg",
+  "originalImageName": "finley ginger ale.jpeg",
+  "imagePath": "files/1630773328737-482370929-finley ginger ale.jpeg",
+  "notAvailableFrom": {
+    "$date": "2021-08-27T16:18:04.793Z"
+  },
+  "notAvailableTo": {
+    "$date": "2021-09-20T16:18:04.793Z"
+  },
+  "name": "finley ginger ale",
+  "availableStock": 3,
+  "createdAt": {
+    "$date": "2021-09-04T16:35:28.741Z"
+  },
+  "updatedAt": {
+    "$date": "2021-09-04T16:35:28.741Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6133a0c025a3ed6b142f3aeb"
+  },
+  "inStock": true,
+  "price": "484",
+  "imageName": "1630773440338-650442363-mrinda.jpeg",
+  "originalImageName": "mrinda.jpeg",
+  "imagePath": "files/1630773440338-650442363-mrinda.jpeg",
+  "notAvailableFrom": {
+    "$date": "2021-09-27T16:18:04.793Z"
+  },
+  "notAvailableTo": null,
+  "name": "mrinda",
+  "availableStock": 342,
+  "createdAt": {
+    "$date": "2021-09-04T16:37:20.341Z"
+  },
+  "updatedAt": {
+    "$date": "2021-09-04T16:37:20.341Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61351b2f319a56ae2fe9c5ab"
+  },
+  "inStock": true,
+  "price": 484,
+  "imageName": "1630870319489-19704238-string.png",
+  "originalImageName": "string.png",
+  "imagePath": "files/1630870319489-19704238-string.png",
+  "notAvailableFrom": {
+    "$date": "2021-09-05T16:18:04.793Z"
+  },
+  "notAvailableTo": null,
+  "name": "string",
+  "availableStock": 342,
+  "createdAt": {
+    "$date": "2021-09-05T19:31:59.516Z"
+  },
+  "updatedAt": {
+    "$date": "2021-09-05T19:31:59.516Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61351b8c319a56ae2fe9c5b0"
+  },
+  "inStock": true,
+  "price": 200,
+  "imageName": "1630870412791-948238075-murree brewery apple malt.jpeg",
+  "originalImageName": "murree brewery apple malt.jpeg",
+  "imagePath": "files/1630870412791-948238075-murree brewery apple malt.jpeg",
+  "notAvailableFrom": {
+    "$date": "2021-09-27T16:18:04.793Z"
+  },
+  "notAvailableTo": null,
+  "name": "murree brewery apple malt",
+  "availableStock": 342,
+  "createdAt": {
+    "$date": "2021-09-05T19:33:32.794Z"
+  },
+  "updatedAt": {
+    "$date": "2021-09-05T19:33:32.794Z"
+  },
+  "__v": 0
+}]

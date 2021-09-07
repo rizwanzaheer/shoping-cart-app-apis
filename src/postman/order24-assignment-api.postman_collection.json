@@ -1,0 +1,390 @@
+{
+	"info": {
+		"_postman_id": "b78e22e6-d81d-4c6c-a709-dfec44744312",
+		"name": "order24-assignment-api",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Products",
+			"item": [
+				{
+					"name": "Add Product",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"type": "file",
+									"src": "/Users/rizwanzaheer/Desktop/Murree Brewery apple malt.jpeg"
+								},
+								{
+									"key": "name",
+									"value": "fanta",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "availableStock",
+									"value": "10",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "price",
+									"value": "122",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "{{baseUrl}}products?name=Murree Brewery apple malt&availableStock=342&price=200&notAvailableFrom=2021-09-27T16:18:04.793Z",
+							"host": [
+								"{{baseUrl}}products"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "Murree Brewery apple malt"
+								},
+								{
+									"key": "availableStock",
+									"value": "342"
+								},
+								{
+									"key": "price",
+									"value": "200"
+								},
+								{
+									"key": "notAvailableFrom",
+									"value": "2021-09-27T16:18:04.793Z"
+								},
+								{
+									"key": "notAvailableTo",
+									"value": "2021-09-20T16:18:04.793Z",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Products",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}products",
+							"host": [
+								"{{baseUrl}}products"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Specific Product Info",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}products/61339e9fe47f2a6542c1c033",
+							"host": [
+								"{{baseUrl}}products"
+							],
+							"path": [
+								"61339e9fe47f2a6542c1c033"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Product",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}products/61339e71e47f2a6542c1c02e",
+							"host": [
+								"{{baseUrl}}products"
+							],
+							"path": [
+								"61339e71e47f2a6542c1c02e"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Product",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"availableStock\":\"145\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}products/61339d1ce47f2a6542c1c02b",
+							"host": [
+								"{{baseUrl}}products"
+							],
+							"path": [
+								"61339d1ce47f2a6542c1c02b"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Search Products",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}products/search?name=m",
+							"host": [
+								"{{baseUrl}}products"
+							],
+							"path": [
+								"search"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "m"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "File",
+			"item": [
+				{
+					"name": "View Specific File",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/files/1630772242761-328937671-fanta.jpeg",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"files",
+								"1630772242761-328937671-fanta.jpeg"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Orders",
+			"item": [
+				{
+					"name": "Create Order",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"deliverAt\": \"2021-09-09T16:18:04.793Z\",\n\t\"_orderProducts\": [\n\t\t{\n\t\t\t\"productId\": \"61339e9fe47f2a6542c1c033\",\n\t\t\t\"productQuantity\": 2\n\t\t},\n\t\t{\n\t\t\t\"productId\": \"6133a05025a3ed6b142f3ae4\",\n\t\t\t\"productQuantity\": 6\n\t\t}\n\t],\n\t\"firstName\": \"Rizwna\",\n\t\"lastName\": \"Zaheeree\",\n\t\"email\": \"rza@gmail.com\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}orders",
+							"host": [
+								"{{baseUrl}}orders"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Orders",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}orders",
+							"host": [
+								"{{baseUrl}}orders"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Specific Order",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}orders/6133a4ed4c0b816f0ea42331",
+							"host": [
+								"{{baseUrl}}orders"
+							],
+							"path": [
+								"6133a4ed4c0b816f0ea42331"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Order",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}orders/6133528ae642592508981961",
+							"host": [
+								"{{baseUrl}}orders"
+							],
+							"path": [
+								"6133528ae642592508981961"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "Create User",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"email\": \"rzz@gmail.com\",\n\t\"firstName\": \"Rizwan\",\n\t\"lastName\": \"zaheer\",\n\t\"_orders\": \"61335327356d2125cf75fa34\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}users",
+							"host": [
+								"{{baseUrl}}users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Users",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}users",
+							"host": [
+								"{{baseUrl}}users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Specific User",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}users/6133a4ed4c0b816f0ea42337",
+							"host": [
+								"{{baseUrl}}users"
+							],
+							"path": [
+								"6133a4ed4c0b816f0ea42337"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update User",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"_orders\": \"61335327356d2125cf75fa34\",\n\t\"firstName\": \"rizwan\",\n\t\"lastName\": \"Zaheer\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}users/6132659b663b5e55d7aeb5dd",
+							"host": [
+								"{{baseUrl}}users"
+							],
+							"path": [
+								"6132659b663b5e55d7aeb5dd"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete User",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}users/6132659b663b5e55d7aeb5dd",
+							"host": [
+								"{{baseUrl}}users"
+							],
+							"path": [
+								"6132659b663b5e55d7aeb5dd"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

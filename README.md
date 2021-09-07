@@ -78,6 +78,8 @@ src\
  |--routes\         # Routes
  |--services\       # Business logic (service layer)
  |--utils\          # Utility classes and functions
+ |--db\             # Test dump db files
+ |--postman\        # Postman file all APIs with test data
  |--validations\    # Request data validation schemas
  |--app.js          # Express app
  |--index.js        # App entry point
