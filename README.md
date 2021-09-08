@@ -50,19 +50,16 @@ yarn prettier:fix
 The environment variables can be found and modified in the `.env` file. They come with these default values:
 
 ```bash
+
 # Port number
 PORT=3000
 
 # URL of the Mongo DB
-MONGODB_URL=mongodb://127.0.0.1:27017/order24-assignment
+MONGODB_URL=mongodb://127.0.0.1:27017/exampleDataBase
 
-# JWT
-# JWT secret key
-JWT_SECRET=thisisasamplesecret
-# Number of minutes after which an access token expires
-JWT_ACCESS_EXPIRATION_MINUTES=30
-# Number of days after which a refresh token expires
-JWT_REFRESH_EXPIRATION_DAYS=30
+# BaseURL of domain
+BASE_URL=localhost
+
 
 ```
 
