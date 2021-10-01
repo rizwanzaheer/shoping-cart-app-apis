@@ -1,5 +1,5 @@
 {
-  "name": "order-twenty-four-api-assignment",
+  "name": "shoping-cart-app-apis",
   "version": "1.0.0",
   "description": "order24-api-assignment",
   "bin": "bin/createNodejsApp.js",
